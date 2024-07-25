@@ -4,6 +4,7 @@ import { graphql } from "relay-runtime";
 import type { StoryCommentsSectionFragment$key } from "./__generated__/StoryCommentsSectionFragment.graphql";
 import Comment from "./Comment";
 import LoadMoreCommentsButton from "./LoadMoreCommentsButton";
+import StoryCommentsComposer from "./StoryCommentsComposer";
 
 const { useState, useTransition } = React;
 
@@ -32,6 +33,7 @@ const StoryCommentsSectionFragment = graphql`
         }
       }
     }
+    ...StoryCommentsComposerFragment
   }
 `;
 
@@ -44,6 +46,7 @@ export default function StoryCommentsSection({ story }: Props) {
 
   return (
     <div>
+      <StoryCommentsComposer story={data}/>
       {data.comments.edges.map(commentEdge =>
         <Comment comment={commentEdge.node} />
       )}

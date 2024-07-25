@@ -45,6 +45,20 @@ export default function StoryLikeButton({ story }: Props): React.ReactElement {
         id: data.id,
         doesLike: !data.doesViewerLike,
       },
+      optimisticUpdater: (store) => {
+        const fragment = graphql`
+            fragment StoryLikeButton_updatable on Story
+            @updatable
+            {
+                likeCount
+                doesViewerLike
+            }
+        `;
+        const { updatableData } = store.readUpdatableFragment(fragment, story);
+        const alreadyLikes = updatableData.doesViewerLike;
+        updatableData.doesViewerLike = !alreadyLikes;
+        updatableData.likeCount += (alreadyLikes ? -1 : 1);
+      }
     })
   }
   return (
