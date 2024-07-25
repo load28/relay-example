@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b934108f6c4f0fd222b3a797f27756f5>>
+ * @generated SignedSource<<ed1db0905ba63139609ec4d1cba8ea7c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,7 +20,7 @@ export type StoryFragment$data = {
     readonly " $fragmentSpreads": FragmentRefs<"ImageFragment">;
   } | null | undefined;
   readonly title: string;
-  readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsSectionFragment">;
+  readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsSectionFragment" | "StoryLikeButtonFragment">;
   readonly " $fragmentType": "StoryFragment";
 };
 export type StoryFragment$key = {
@@ -102,12 +102,17 @@ const node: ReaderFragment = {
       "args": null,
       "kind": "FragmentSpread",
       "name": "StoryCommentsSectionFragment"
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "StoryLikeButtonFragment"
     }
   ],
   "type": "Story",
   "abstractKey": null
 };
 
-(node as any).hash = "23b3ab2130707636b0d63985a02b1657";
+(node as any).hash = "fe8d12ac5154be9f9f592fdc09706533";
 
 export default node;

@@ -36,7 +36,7 @@ const NewsfeedContentsFragment = graphql`
 
 export default function Newsfeed() {
     const queryData = useLazyLoadQuery(NewsfeedQuery, {});
-    const {    data, loadNext, hasNext, isLoadingNext,} = usePaginationFragment(NewsfeedContentsFragment, queryData);
+    const { data, loadNext, hasNext, isLoadingNext} = usePaginationFragment(NewsfeedContentsFragment, queryData);
     function onEndReached() {
         loadNext(3);
     }
